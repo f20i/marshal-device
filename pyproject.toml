@@ -1,0 +1,23 @@
+[project]
+name = "marshal-device"
+version = "0.1.0"
+description = "Marshal Device"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.136.1",
+    "httpx>=0.28.1",
+    "uvicorn>=0.46.0",
+]
+
+[dependency-groups]
+dev = [
+    "poethepoet>=0.41.0",
+]
+
+[tool.poe.tasks.dev]
+cmd = "uv run python -m src.main"
+env = { ENV = "development" }
+
+[tool.poe.tasks.start]
+cmd = "uv run python -m src.main"
